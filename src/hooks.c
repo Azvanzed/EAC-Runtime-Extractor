@@ -158,7 +158,7 @@ void SectionWatcher() {
             // incase the buffer gets modified while dumping
             uint32_t checksum = 0;
             for (uint32_t i = 0; i < buffer->DataSize; ++i) {
-                checksum += _mm_crc32_u8(checksum, buffer->Data[i]);
+                checksum = _mm_crc32_u8(checksum, buffer->Data[i]);
             }
 
             if (checksum != current->checksum) {
